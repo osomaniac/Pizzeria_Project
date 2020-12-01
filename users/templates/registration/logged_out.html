@@ -1,5 +1,10 @@
 {% extends "pizza_app/base.html" %} 
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'pizza_app/css/pizzeria_theme.css' %}">
+{% endblock %}
 {% block content %}
+
 <body>
     <p>You have been logged out. Thank you for visitng Molly's Pizzeria!</p>
 </body>

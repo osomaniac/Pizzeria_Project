@@ -10,17 +10,13 @@
    <title>Molly's Pizzeria</title>
    {% bootstrap_css %}
    {% bootstrap_javascript jquery='full' %}
-<style>
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-</style>
+   {% block styles %}  
+   <link rel="stylesheet" type="text/css" href="static/pizza_app/css/pizzeria_theme.css"> 
+   {% endblock %}
+   
 </head>
 <body>
-   <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+   <nav class="navbar navbar-expand-md navbar-light bg-light mb-4">
 
        <a class="navbar-brand" href="{% url 'pizza_app:index'%}">
            <img src="{% static 'pizza_app/images/pizzeria_logo.png' %}"></a>
@@ -57,7 +53,7 @@
    </nav>
    <main role="main" class="container">
        <div class="pb-2 mb-2 border-bottom">
-           {% block page_header %}{% endblock page_header %}
+           {% block page_header %}<link rel="stylesheet" type="text/css" href="static/pizza_app/css/pizzeria_theme.css"> {% endblock page_header %}
        </div>
        <div>
            {% block content %}{% endblock content %}
