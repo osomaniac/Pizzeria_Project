@@ -3,13 +3,19 @@
     <h1>Pizzas</h1>
 {% endblock page_header %}
 {% block content %}
-    <ul>
-        {% for pizza in pizzas %}
-            <li><h3>
-                <a href="{% url 'pizza_app:pizza' pizza.id %}">{{ pizza }}</a>
-            </h3></li>
-        {% empty %}
-                <li><h3>No pizzas are currently available.</h3></li>
-        {% endfor %}
-    </ul>
+
+<div class="card-deck"> 
+    {% for pizza in pizzas %}
+        <div class="card"> 
+            <a href="{% url 'pizza_app:pizza' pizza.id %}">
+            <div class="card-block"> 
+                <img src="{{ pizza.image.url }}" style="width: 200px;" class="center"/>
+                <h4 class="card-title" style="text-align: center;">{{ pizza }}
+                </h4> 
+            </div> 
+            </a>
+        </div> 
+    {% endfor %}
+</div>
+
 {% endblock content %}

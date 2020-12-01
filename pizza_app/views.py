@@ -8,7 +8,7 @@ from django.http import Http404
 def index(request):
     return render(request, 'pizza_app/index.html')
 
-def pizzas(request):
+def pizzas(request):   
     pizzas = Pizza.objects.order_by('name')
     context = {'pizzas':pizzas}
     return render(request, 'pizza_app/pizzas.html', context)
@@ -16,6 +16,7 @@ def pizzas(request):
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     toppings = pizza.topping_set.order_by('-name')
+  
     comments = pizza.comment_set.order_by('-date_posted')
     context = {'pizza':pizza, 'comments':comments, 'toppings':toppings}
     return render(request, 'pizza_app/pizza.html', context)
