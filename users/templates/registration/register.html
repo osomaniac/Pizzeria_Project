@@ -1,0 +1,15 @@
+{% extends "pizza_app/base.html" %} 
+{% block content %}
+<body>
+    <form action="{% url 'users:register' %}" method='POST'>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button name="submit">Register</button>
+        <!--includes a hidden element 'next' that tells Django wehre to redirect to on a succesful login-->
+        <input type="hidden" name="next" value="{% url 'pizza_app:index' %}" />
+    </form>
+</body>
+
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'pizza_app/base.html' %}
+{% block page_header %}
+    <h3>{{ pizza }}</h3>
+{% endblock page_header %}
+{% block content %}
+    <p>
+        <a href="{% url 'pizza_app:new_comment' pizza.id %}">Add a New Comment</a>
+    </p>
+
+    <div class="card-deck"> 
+        {% for topping in toppings %}
+            <div class="card"> 
+                <div class="card-block"> 
+                    <h4 class="card-title" style="text-align: center;">{{ topping }}
+                    </h4> 
+                </div> 
+            </div> 
+        {% endfor %}
+    </div>
+    
+    <br>
+    {% for comment in comments %}
+        <div class="card mb-3">
+            <h4 class="card-header">
+                {{ comment.author }}
+            <small>
+                {{ comment.date_posted|date:'M d, Y H:i' }}
+                <a href="{% url 'pizza_app:edit_comment' comment.id %}">
+                edit comment</a></small>
+            </h4>
+
+            <div class="card-body">
+                {{ comment.text|linebreaks }}
+            </div>
+        </div>
+    {% empty %}
+        <p>There are no comments for this pizza yet.</p>
+    {% endfor %}
+{% endblock content %}
