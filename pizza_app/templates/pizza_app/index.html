@@ -1,0 +1,13 @@
+{% extends "pizza_app/base.html" %}
+{% block page_header %}
+<div class="jumbotron">
+    <h1 class="display-3">Molly's Pizzeria</h1>
+    <p class="lead">At Molly's Pizzeria, we do pizza right! We've been making pizzas in the Los Angeles area for 15 years now
+        and have mastered the art of the perfect pizza. We offer a variety of pizzas to fit everyone's tastes and have been using
+        the same dough and sauce recipe our great-great-grandmother passed down all those years ago. Come see why Molly's Pizzeria
+        is the best!
+    </p>
+    <a class="btn btn-lg btn-primary" href="{% url 'pizza_app:pizzas' %}"
+        role="button">Pizzas</a> 
+</div>
+{% endblock page_header %}

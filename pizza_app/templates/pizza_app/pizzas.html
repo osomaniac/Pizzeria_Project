@@ -1,0 +1,15 @@
+{% extends "pizza_app/base.html" %}
+{% block page_header %}
+    <h1>Pizzas</h1>
+{% endblock page_header %}
+{% block content %}
+    <ul>
+        {% for pizza in pizzas %}
+            <li><h3>
+                {{ pizza }}
+            </h3></li>
+        {% empty %}
+                <li><h3>No pizzas are currently available.</h3></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
